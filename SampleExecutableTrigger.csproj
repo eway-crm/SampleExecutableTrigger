@@ -8,8 +8,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="nlog.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>  
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="eWayCRM.API" Version="1.5.9" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="NLog" Version="5.3.3" />
   </ItemGroup>
 
 </Project>

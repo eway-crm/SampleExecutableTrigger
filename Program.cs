@@ -10,6 +10,8 @@ namespace MyApp
         {
             try
             {
+                Guid itemGuid = new Guid(args[1]);
+
                 // Build app name
                 var assemblyName = Assembly.GetExecutingAssembly().GetName();
                 string appIdentifier = $"{assemblyName.Name}-v{assemblyName.Version.Major}.{assemblyName.Version.Minor}";
@@ -17,12 +19,14 @@ namespace MyApp
                 // Create connection
                 var connection = new eWayCRM.API.Connection("https://localhost/eWayWSImpala", "api", null, appIdentifier: appIdentifier, accessToken: args[0]);
 
+                Logger.LogDebug($"Adding Note to journal '{itemGuid}'");
+
                 // Save "Hello World!" to journal note
                 connection.CallMethod("SaveJournal", JObject.FromObject(new
                 {
                     transmitObject = new
                     {
-                        ItemGUID = args[1],
+                        ItemGUID = itemGuid,
                         Note = "Hello World!"
                     }
                 }));
