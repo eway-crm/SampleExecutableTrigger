@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TriggersConfiguration xmlns="urn:eway:document-schemas:triggers-configuration">
+  <Triggers>
+    <TriggerDefinition When="AfterInsert" Active="true">
+      <Folder>Journal</Folder>
+      <Action Type="Executable">
+        <Executable Target="Apps\SampleExecutableTrigger\SampleExecutableTrigger.exe" WaitingType="WaitOutsideTransaction">
+          <Parameters>
+            <AccessToken ApiUser="api" />
+            <Parameter SourceName="ItemGUID" SqlDbType="UniqueIdentifier" />
+          </Parameters>
+        </Executable>
+        <Criterias>
+          <ActionCriteria Name="$ClientVersion" Value="SampleExecutableTrigger" Operator="NotStartsWith"/>
+        </Criterias>
+      </Action>
+    </TriggerDefinition>
+  </Triggers>
+</TriggersConfiguration>

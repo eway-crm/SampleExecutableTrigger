@@ -10,7 +10,7 @@
             "type": "clr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceFolder}/bin/Debug/net72/SampleExecutableTrigger.exe",
+            "program": "${workspaceFolder}/bin/Debug/net472/SampleExecutableTrigger.exe",
             "args": [],
             "cwd": "${workspaceFolder}",
             "stopAtEntry": false,

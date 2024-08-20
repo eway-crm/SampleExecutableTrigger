@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
+using System.Reflection;
 
 namespace MyApp
 {
@@ -8,7 +10,22 @@ namespace MyApp
         {
             try
             {
-                Console.WriteLine("Hello World!");
+                // Build app name
+                var assemblyName = Assembly.GetExecutingAssembly().GetName();
+                string appIdentifier = $"{assemblyName.Name}-v{assemblyName.Version.Major}.{assemblyName.Version.Minor}";
+
+                // Create connection
+                var connection = new eWayCRM.API.Connection("https://localhost/eWayWSImpala", "api", null, appIdentifier: appIdentifier, accessToken: args[0]);
+
+                // Save "Hello World!" to journal note
+                connection.CallMethod("SaveJournal", JObject.FromObject(new
+                {
+                    transmitObject = new
+                    {
+                        ItemGUID = args[1],
+                        Note = "Hello World!"
+                    }
+                }));
             }
             catch (Exception ex)
             {
