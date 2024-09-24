@@ -1,0 +1,7 @@
+{   
+  // Recommended extensions
+  "recommendations": [ 
+    "ms-dotnettools.csdevkit",
+    "ms-dotnettools.csharp",
+  ]
+} 
