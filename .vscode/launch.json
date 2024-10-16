@@ -6,11 +6,22 @@
     "configurations": [
 
         {
-            "name": ".NET Core Launch (console)",
+            "name": ".NET Core Launch (console) - Debug",
             "type": "clr",
             "request": "launch",
-            "preLaunchTask": "build",
+            "preLaunchTask": "build debug",
             "program": "${workspaceFolder}/bin/Debug/net472/SampleExecutableTrigger.exe",
+            "args": [],
+            "cwd": "${workspaceFolder}",
+            "stopAtEntry": false,
+            "console": "internalConsole"
+        },
+        {
+            "name": ".NET Core Launch (console) - Release",
+            "type": "clr",
+            "request": "launch",
+            "preLaunchTask": "build release",
+            "program": "${workspaceFolder}/bin/Release/net472/SampleExecutableTrigger.exe",
             "args": [],
             "cwd": "${workspaceFolder}",
             "stopAtEntry": false,
